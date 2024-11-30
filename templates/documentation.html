@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css') }}">
+    <title>{% block title %} Документация {% endblock %}</title>
+</head>
+
+<body>
+
+    <div class="page">
+
+        <header id="header" class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="/"
+                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+                <div class="pic-main-menu">
+                    <img src="{{ url_for('static', filename = 'image/AITitlePic3.png') }}" style="margin-right: 8px;">
+                </div>
+                <span class="fs-4">AI ENGINEERING</span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="{{ url_for('index')}}" class="nav-link" aria-current="page">Главная страница</a></li>
+                <li class="nav-item"><a href="{{ url_for('documentation')}}" class="nav-link">Документация</a></li>
+            </ul>
+        </header>
+
+
+        <div id = "sidebar" class="sidebar" style="width: 380px;">
+            <a href="/"
+                class="d-flex align-items-center flex-shrink-0 p-3 link-body-emphasis text-decoration-none border-bottom">
+                <svg class="bi pe-none me-2" width="30" height="24">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+                <span class="large-title fw-semibold">Документация</span>
+            </a>
+            <div class="list-group list-group-flush border-bottom scrollarea">
+                <a href="#heading1" class="list-group-item list-group-item-action py-3 lh-sm" aria-current="true">
+                    <div class="d-flex w-100 align-items-center justify-content-start">
+                        <div class="pic-left-menu">
+                            <img src="{{ url_for('static', filename = 'image/ActuallyInf2.png') }} "style="margin-right: 8px;">
+                        </div>
+                        <strong class="mb-1">Актуальная информация</strong>
+                        <!--<small>Wed</small>-->
+                    </div>
+                    <div class="col-10 mb-1 small">Последние новости ИИ
+                    </div>
+                </a>
+                <a href="#heading2" class="list-group-item list-group-item-action py-3 lh-sm">
+                    <div class="d-flex w-100 align-items-center justify-content-start">
+                        <div class="pic-left-menu">
+                            <img src="{{ url_for('static', filename = 'image/linksPic.png') }}"style="margin-right: 8px;">
+                        </div>
+                        <strong class="mb-1" id="specific-element-2">Ссылки на статьи</strong>
+                        <!--<small class="text-body-secondary">Tues</small>-->
+                    </div>
+                    <div class="col-10 mb-1 small" id="specific-interior-element-2">Полезные статьи и блоги
+                    </div>
+                </a>
+                <a href="#heading3" class="list-group-item list-group-item-action py-3 lh-sm">
+                    <div class="d-flex w-100 align-items-center justify-content-start">
+                        <div class="pic-left-menu">
+                            <img src="{{ url_for('static', filename = 'image/educationSch.png') }} "style="margin-right: 8px;">
+                        </div>
+                        <strong class="mb-1">Обучающие материалы</strong>
+                        <!--<small class="text-body-secondary">Tues</small>-->
+                    </div>
+                    <div class="col-10 mb-1 small">Учебные ресурсы и курсы
+                    </div>
+                </a>
+                <a href="#heading4" class="list-group-item list-group-item-action py-3 lh-sm">
+                    <div class="d-flex w-100 align-items-center justify-content-start">
+                        <div class="pic-left-menu">
+                            <img src="{{ url_for('static', filename = 'image/frameworksPic.png') }} "style="margin-right: 8px;">
+                        </div>
+                        <strong class="mb-1">Документация по фреймворкам</strong>
+                        <!--<small class="text-body-secondary">Tues</small>-->
+                    </div>
+                    <div class="col-10 mb-1 small">Информация по инструментам
+                    </div>
+                </a>
+                <a href="#heading5" class="list-group-item list-group-item-action py-3 lh-sm">
+                    <div class="d-flex w-100 align-items-center justify-content-start">
+                        <div class="pic-left-menu">
+                            <img src="{{ url_for('static', filename = 'image/groupPic.png') }} "style="margin-right: 8px;">
+                        </div>
+                        <strong class="mb-1">Форумы и сообщества</strong>
+                        <!--<small class="text-body-secondary">Tues</small>-->
+                    </div>
+                    <div class="col-10 mb-1 small">Платформы для общения
+                    </div>
+                </a>
+                <a href="#heading6" class="list-group-item list-group-item-action py-3 lh-sm">
+                    <div class="d-flex w-100 align-items-center justify-content-start">
+                        <div class="pic-left-menu">
+                            <img src="{{ url_for('static', filename='image/terminsPic.png') }}" style="margin-right: 8px;">
+                        </div>
+                        <strong class="mb-1">Справочник терминов</strong>
+                        <!--<small class="text-body-secondary">Tues</small>-->
+                    </div>
+                    <div class="col-10 mb-1 small">Определения ключевых понятий
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div id="content" class="content">
+            {% block content %}
+            <div class="information">
+                <div class="centered-heading">
+                    <span>
+                        <h1 id = "heading1" class = "anchor-target heading">Актуальная информация</h1>
+                    </span>
+                </div>
+            
+                <section>
+                    <h2>Заменит ли ИИ человеческое мышление?</h2>
+                    <p>Разработка искусственного интеллекта действительно является одной из наиболее актуальных и важных тем в современной технологической сфере. Это не просто так: ИИ имеет огромный потенциал для трансформации практически всех аспектов нашей жизни и общества. Он может значительно повлиять на экономику, создавая новые рабочие места и инновационные продукты и услуги. Кроме того, ИИ способствует научному прогрессу, расширяя границы человеческого знания и понимания. Его применение уже видимо во многих отраслях, от медицины до образования, и продолжает стремительно развиваться. Однако вместе с этими преимуществами приходит и ряд сложных этических вопросов, которые требуют тщательного рассмотрения и регулирования.</p>
+                </section>
+            
+                <section>
+                    <h2>Исследование этой области важно по нескольким причинам:</h2>
+                    <ul class="principles">
+                        <li>Экономическое развитие: ИИ может значительно повлиять на экономику, создавая новые рабочие места и инновационные продукты и услуги.</li>
+                        <li>Научный прогресс: Разработка ИИ способствует продвижению границ человеческого знания и понимания.</li>
+                        <li>Общество: ИИ может решить многие социальные проблемы, такие как улучшение здравоохранения, образовательных систем и экологической ситуации.</li>
+                        <li>Безопасность: Разработка ИИ также включает аспекты безопасности, таких как предотвращение кибератак и создание более безопасных городов.</li>
+                        <li>Интеграция технологий: ИИ играет ключевую роль в интеграции различных технологических областей, таких как робототехника, нейронные сети и машинное обучение.</li>
+                        <li>Глобальное взаимодействие: Тема ИИ привлекает внимание ученых и исследователей со всего мира, способствуя международному сотрудничеству.</li>
+                    </ul>
+                    <p1>Учитывая важность этой темы, вот актуальная информация об разработке искусственного интеллекта, представленная в маркированном списке с нумерованными подпунктами:</p1>
+                </section>
+
+                <section>
+                    <h2>Основные направления развития ИИ</h2>
+                    <ol>
+                        <li>Нейронные сети и глубокое обучение:</li>
+                        <ul class="principles">
+                            <li>Прогресс в архитектурах нейронных сетей (ResNet, Transformer).</li>
+                            <li>Улучшение методов оптимизации и обучения.</li>
+                            <li>Разработка более эффективных алгоритмов для обработки больших объемов данных.</li>
+                        </ul>
+                        <li>Машинное обучение и автоматическое кодирование:</li>
+                        <ul class="principles">
+                            <li>Расширение применения метрик качества модели.</li>
+                            <li>Внедрение новых методов оценки производительности ИИ.</li>
+                            <li>Разработка систем автоматического кодирования и генерации кода.</li>
+                        </ul>
+                        <li>Квантовые вычисления и ИИ:</li>
+                        <ul class="principles">
+                            <li>Исследования возможности использования квантовых компьютеров для ИИ задач.</li>
+                            <li>Разработка квантово-классических алгоритмов для улучшения производительности ИИ.</li>
+                        </ul>
+                        <li>Экспертные системы и принятие решений:</li>
+                        <ul class="principles">
+                            <li>Создание гибких экспертных систем на основе ИИ.</li>
+                            <li>Разработка методов для повышения надежности и точности принятия решений.</li>
+                        </ul>
+                    </ol>
+                </section>
+
+                <section>
+                    <h2>Применение ИИ в различных отраслях</h2>
+                    <p>Применение искусственного интеллекта (ИИ) в различных отраслях стало одним из самых активно развивающихся направлений в современной технологической сфере. </p>
+                </section>
+
+                <section>
+                    <ol>
+                        <div class="principles">
+                            <dt>Здравоохранение:</dt>
+                            <p1>В медицине ИИ используется для диагностики заболеваний, разработки персонализированных лечебных планов и анализа медицинских данных для выявления закономерностей и предотвращения эпидемий.</p1>
+                        </div>
+                        <br>
+                        <div class="principles">
+                            <dt>Финансовая сфера:</dt>
+                            <p1>В финансовой сфере ИИ применяется для создания интеллектуальных систем управления портфелями, разработки прогнозных моделей для финансовых рынков и анализа кредитного риска и антиотмывочного контроля.</p1>
+                        </div>
+                        <br>
+                        <div class="principles">
+                            <dt>Автомобильная промышленность:</dt>
+                            <p1>В автомобильной промышленности ИИ помогает разрабатывать автономные автомобили, создавать системы навигации и распознавания объектов, а также оптимизировать производственные процессы.</p1>
+                        </div>
+                        <br>
+                        <div class="principles">
+                            <dt>Образование:</dt>
+                            <p1>В образовании ИИ используется для создания адаптивных образовательных систем, разработки систем анализа результатов обучения и генерации персонализированного контента для студентов.</p1>
+                        </div>
+                    </ol>
+                </section>  
+                
+                <section>
+                    <h2>Этические аспекты и регулирование:</h2>
+                    <p>Этические аспекты и регулирование являются критически важными для искусственного интеллекта (ИИ), поскольку они помогают предотвратить дискриминацию и предвзятость в алгоритмах, что может негативно сказаться на определённых группах людей. Они обеспечивают безопасность пользователей, защищая их данные от несанкционированного доступа и возможного злоупотребления. Также этические нормы способствуют прозрачности работы ИИ-систем, позволяя пользователям понимать, на каком основании принимаются решения. Регулирование помогает создать стандарты, которые обеспечивают ответственную разработку и внедрение ИИ. Таким образом, соблюдение этики и разработка соответствующих норм являются основой для доверия пользователей и успешного применения технологий ИИ в обществе.</p>
+                </section>
+
+                <section>
+                    <ol>
+                        <li>Правовые рамки:</li>
+                        <ul class="principles">
+                            <li>Разработка международных стандартов регулирования ИИ.</li>
+                            <li>Создание национальных законодательств по ИИ.</li>
+                            <li>Дискуссии о правах и обязанностях AI-систем.</li>
+                        </ul>
+                        <li>Безопасность и этика:</li>
+                        <ul class="principles">
+                            <li>Исследования потенциального влияния ИИ на работу человека.</li>
+                            <li>Разработка методов предотвращения злоупотреблений ИИ.</li>
+                            <li>Создание этических алгоритмов для ИИ-систем.</li>
+                        </ul>
+                        <li>Социальные последствия:</li>
+                        <ul class="principles">
+                            <li>Анализ влияния ИИ на занятость и экономику.</li>
+                            <li>Исследования социальных изменений, вызванных ИИ.</li>
+                            <li>Разработка стратегий для минимизации негативных последствий</li>
+                        </ul>
+                </ol>
+                </section>
+
+                <section>
+                    <h2>Технологические инновации</h2>
+                    <p>Технологические инновации играют ключевую роль в развитии искусственного интеллекта (ИИ), так как они позволяют создавать более мощные и эффективные алгоритмы, способные решать сложные задачи. Применение новых технологий, таких как глубокое обучение, нейронные сети и облачные вычисления, значительно улучшает качество и скорость обработки данных. Актуальность этих инноваций становится все более очевидной, поскольку ИИ находит применение в различных сферах — от медицины и финансов до транспорта и образования. Инновации также способствуют созданию адаптивных систем, которые могут эволюционировать в ответ на изменяющиеся условия и требования. Таким образом, непрерывные технологические достижения являются основой для дальнейшего прогресса и интеграции ИИ в повседневную жизнь.</p>
+                </section>
+                
+                <section>
+                    <ol>
+                        <li>Квантовые нейронные сети:</li>
+                        <ul class="principles">
+                            <li>Теоретические исследования взаимодействия квантовых и нейронных сетей.</li>
+                            <li>Практическое применение квантовых вычислений в ИИ задачах.</li>
+                        </ul>
+                        <li>Междисциплинарный подход:</li>
+                        <ul class="principles">
+                            <li>Интеграция ИИ с биологией и психологией.</li>
+                            <li>Разработка биониковых систем с использованием ИИ.</li>
+                            <li>Создание симбионтных систем ИИ и живых организмов.</li>
+                        </ul>
+                        <li>Высокопроизводительные вычисления:</li>
+                        <ul class="principles">
+                            <li>Разработка специализированных чипов для ИИ.</li>
+                            <li>Создание распределенных ИИ-систем для обработки больших данных.</li>
+                            <li>Исследования методов оптимизации энергопотребления в ИИ.</li>
+                        </ul>
+                    </ol>
+                </section>
+
+                <section>
+                    <h2>Глобальное сотрудничество и образование</h2>
+                    <p>Глобальное сотрудничество и образование являются ключевыми факторами для успешного развития искусственного интеллекта (ИИ), так как они способствуют обмену знаниями и лучшими практиками среди стран и организаций. Совместные усилия исследователей и специалистов из разных уголков мира позволяют ускорить внедрение инноваций и улучшение алгоритмов ИИ. Образование играет важную роль в подготовке новой генерации экспертов, способных работать с передовыми технологиями и решать сложные задачи, связанные с этикой и безопасностью ИИ. Кроме того, глобальное сотрудничество помогает создать стандарты и нормативы, регулирующие использование ИИ, что способствует более безопасному и ответственному внедрению технологий. Таким образом, инвестиции в образование и международное сотрудничество являются необходимыми для обеспечения устойчивого роста и развития технологий ИИ на глобальном уровне.</p>
+                </section>
+
+                <section>
+                    <ol>
+                        <li>Международные проекты:</li>
+                        <ul class="principles">
+                            <li>Европейский исследовательский центр по ИИ (ERC).</li>
+                            <li>Проекты по созданию глобальной сети ИИ-компьютеров.</li>
+                            <li>Координация усилий между различными странами и организациями.</li>
+                        </ul>
+                        <li>Образовательные программы:</li>
+                        <ul class="principles">
+                            <li>Создание специализированных программ по ИИ в университетах.</li>
+                            <li>Организация конференций и семинаров по актуальным вопросам ИИ.</li>
+                            <li>Разработка онлайн-курсов и платформ для изучения ИИ.</li>
+                        </ul>
+                        <li>Обзоры и прогнозы:</li>
+                        <ul class="principles">
+                            <li>Регулярные обзоры текущего состояния ИИ.</li>
+                            <li>Предсказания будущих тенденций в развитии ИИ.</li>
+                            <li>Анализ долгосрочных перспектив ИИ-технологий.</li>
+                        </ul>
+                    </ol>
+                </section>
+
+                <heading>
+                    <div class="centered-heading">
+                        <span>
+                            <h1 id = "heading2" class = "anchor-target heading">Ссылки на статьи</h1>
+                        </span>
+                    </div>
+                    <p>Блок "Ссылки на статьи" на нашем сайте об AI Engineering предназначен для информирования читателей о актуальных материалах и исследованиях в области искусственного интеллекта. Он служит полезным ресурсом для студентов, специалистов и энтузиастов, желающих углубить свои знания и понимать современные технологии и методы. Мы стремимся создать платформу для обмена опытом и идеями, поддерживая активное сообщество профессионалов и новичков. Регулярное обновление контента гарантирует, что вы всегда будете иметь доступ к свежей и релевантной информации.</p>
+                </heading>
+
+                <section>
+                    <ol class="principles">
+                        <li><a href="https://towardsdatascience.com">Towards Data Science</a> - платформа с множеством статей и руководств по науке о данных и ИИ.</li>
+                        <li><a href="https://www.ainews.com">AI News</a> - новости и обновления в мире искусственного интеллекта.</li>
+                        <li><a href="https://www.technologyreview.com">MIT Technology Review</a> - аналитика и исследования по технологиям, включая ИИ.</li>
+                        <li><a href="https://arxiv.org/archive/cs.AI">arXiv.org (Artificial Intelligence section)</a> - репозиторий научных статей по разным направлениям ИИ.</li>
+                        <li><a href="https://www.kdnuggets.com">KDnuggets</a> - ресурс с информацией и обучающими материалами по данным и ИИ.</li>
+                        <li><a href="https://openai.com/research">OpenAI Blog</a> - исследования и публикации от OpenAI, лидера в области ИИ.</li>
+                        <li><a href="https://www.deepmind.com/blog">DeepMind Blog</a> - статьи о научных исследованиях компании DeepMind в области ИИ.</li>
+                        <li><a href="https://paperswithcode.com">Papers with Code</a> - платформа, связывающая научные статьи с их реализациями в коде.</li>
+                        <li><a href="https://machinelearningmastery.com">Machine Learning Mastery</a> - ресурсы и учебники по машинному обучению от Джейсона Брауна.</li>
+                        <li><a href="https://www.ibm.com/artificial-intelligence">Artificial Intelligence at IBM</a> - информация о решениях ИИ от IBM.</li>
+                        <li><a href="https://www.analyticsvidhya.com">Analytics Vidhya</a> - сообщество и образовательный ресурс по данным и аналитике.</li>
+                        <li><a href="https://www.datacamp.com/community/blog">DataCamp Blog</a> - статьи и руководства по науке о данных и программированию.</li>
+                        <li><a href="https://www.databricks.com/blog">Databricks Blog</a> - информация о разработках Databricks в области больших данных и ИИ.</li>
+                        <li><a href="https://www.tensorflow.org/blog">TensorFlow Blog</a> - апдейты и уроки по TensorFlow, популярной библиотеке для ИИ.</li>
+                        <li><a href="https://www.kaggle.com">Kaggle</a> - платформа для соревнований по аналитике данных и машинному обучению.</li>
+                        <li><a href="https://www.microsoft.com/en-us/research/">Microsoft Research</a> - исследования Microsoft в области ИТ и ИИ.</li>
+                        <li><a href="https://fast.ai/">fast.ai</a> - курс и ресурсы по глубокому обучению для практикующих специалистов.</li>
+                        <li><a href="https://www.neurips.cc/">NeurIPS Conference</a> - одна из крупнейших конференций по ИИ и машинному обучению.</li>
+                        <li><a href="https://www.researchgate.net/">ResearchGate</a> - социальная сеть для исследователей, чтобы делиться научными публикациями.</li>
+                        <li><a href="https://www.oreilly.com/topics/artificial-intelligence">O'Reilly AI</a> - книги и видео по различным аспектам искусственного интеллекта.</li>
+                        <li><a href="https://ai.google/">Google AI</a> - исследования и технологии ИИ от Google.</li>
+                        <li><a href="https://www.facebook.com/ai">Facebook AI</a> - исследования и проекты Facebook в области искусственного интеллекта.</li>
+                        <li><a href="https://www.ibm.com/watson">IBM Watson</a> - платформа для разработки решений на базе ИИ от IBM.</li>
+                        <li><a href="https://www.h2o.ai/">H2O.ai</a> - платформа для автоматизации машинного обучения и аналитики.</li>
+                        <li><a href="https://www.analyticsinsight.net/">Analytics Insight</a> - новостной портал о больших данных, аналитике и ИИ.</li>
+                        <li><a href="https://www.journalofbigdata.springeropen.com/">Journal of Big Data</a> - научный журнал о больших данных и их анализе.</li>
+                        <li><a href="https://www.ijcai.org/">IJCAI</a> - Международная конференция по искусственному интеллекту.</li>
+                        <li><a href="https://www.r-bloggers.com/category/ai/">R-bloggers AI</a> - блог с новостями и статьями по ИИ на R.</li>
+                        <li><a href="https://deepmind.com/research/publications">DeepMind Research Publications</a> - научные публикации DeepMind.</li>
+                        <li><a href="https://www.microsoft.com/en-us/research/publications/">Microsoft Research Publications</a> - публикации Microsoft Research по ИИ и вычислительным технологиям.</li>
+                        <li><a href="https://www.nature.com/subjects/artificial-intelligence">Nature Artificial Intelligence</a> - научный журнал о новейших исследованиях в области ИИ.</li>
+                        <li><a href="https://www.sciencedirect.com/journal/artificial-intelligence">Artificial Intelligence Journal (Elsevier)</a> - рецензируемый журнал по искусственному интеллекту.</li>
+                    </ol>        
+                </section>
+
+                <heading>
+                    <div class="centered-heading">
+                        <span>
+                            <h1 id = "heading3" class = "anchor-target heading">Обучающие материалы по AI Engineering</h1>
+                        </span>
+                    </div>
+                    <p>Блок "Обучающие материалы" на нашем сайте по AI Engineering предназначен для предоставления пользователям доступа к разнообразным ресурсам для изучения современных технологий и методов искусственного интеллекта. Здесь вы найдете руководство, видеоуроки и статьи, способствующие вашему профессиональному развитию.</p>
+                </heading>
+
+                <section>
+                    <div class="luch">
+                        <ul class="principles">
+                            <h2>Ресурсы:</h2>
+                            <ol>
+                                <li class="highlight-list-item"><a href="https://towardsdatascience.com">Towards Data Science</a> - платформа с множеством статей и руководств по науке о данных и ИИ.</li>
+                                <li class="highlight-list-item"><a href="https://www.kdnuggets.com">KDnuggets</a> - ресурс с информацией и обучающими материалами по данным и ИИ.</li>
+                                <li class="highlight-list-item"><a href="https://www.analyticsvidhya.com">Analytics Vidhya</a> - сообщество и образовательный ресурс по данным и аналитике.</li>
+                                <li class="highlight-list-item"><a href="https://www.datacamp.com/community/blog">DataCamp Blog</a> - статьи и руководства по науке о данных и программированию.</li>
+                                <li class="highlight-list-item"><a href="https://www.ibm.com/artificial-intelligence">Artificial Intelligence at IBM</a> - информация о решениях ИИ от IBM.</li>
+                            </ol>
+                    
+                            <h2>Руководства:</h2>
+                            <ol>
+                                <li class="highlight-list-item"><a href="https://machinelearningmastery.com">Machine Learning Mastery</a> - ресурсы и учебники по машинному обучению от Джейсона Брауна.</li>
+                                <li class="highlight-list-item"><a href="https://fast.ai/">fast.ai</a> - бесплатные курсы по глубокому обучению для практикующих специалистов.</li>
+                                <li class="highlight-list-item"><a href="https://berkeley.ai/">Berkeley AI Materials</a> - материалы курса по искусственному интеллекту от UC Berkeley.</li>
+                                <li class="highlight-list-item"><a href="https://www.tensorflow.org/tutorials">TensorFlow Tutorials</a> - официальные учебные пособия по использованию TensorFlow.</li>
+                                <li class="highlight-list-item"><a href="https://www.oreilly.com/library/view/artificial-intelligence/9781492055014/">O'Reilly AI</a> - книги и ресурсы по различным аспектам искусственного интеллекта.</li>
+                            </ol>
+                    
+                            <h2>Видеоуроки:</h2>
+                            <ol>
+                                <li class="highlight-list-item"><a href="https://www.youtube.com/c/3Blue1Brown">3Blue1Brown</a> - YouTube-канал с визуальными объяснениями математических концепций, связанных с ИИ.</li>
+                                <li class="highlight-list-item"><a href="https://www.youtube.com/c/StatQuest">StatQuest with Josh Starmer</a> - полезные видео по статистике и анализу данных с акцентом на ИИ.</li>
+                                <li class="highlight-list-item"><a href="https://www.youtube.com/c/KairosAI">KairosAI</a> - обучающие видео об ИИ и машинном обучении.</li>
+                                <li class="highlight-list-item"><a href="https://www.coursera.org/">Coursera</a> - обучающие курсы по ИИ и смежным областям от ведущих университетов.</li>
+                                <li class="highlight-list-item"><a href="https://www.udacity.com/course/intro-to-artificial-intelligence--cs271">Intro to AI by Udacity</a> - платный курс по искусственному интеллекту от Udacity.</li>
+                            </ol>
+                    
+                            <h2>Статьи:</h2>
+                            <ol>
+                                <li class="highlight-list-item"><a href="https://arxiv.org/archive/cs.AI">arXiv.org (Artificial Intelligence section)</a> - репозиторий научных статей по разным направлениям ИИ.</li>
+                                <li class="highlight-list-item"><a href="https://www.technologyreview.com/">MIT Technology Review</a> - аналитика и исследования по технологиям, включая ИИ.</li>
+                                <li class="highlight-list-item"><a href="https://www.deepmind.com/blog">DeepMind Blog</a> - статьи о научных исследованиях компании DeepMind в области ИИ.</li>
+                                <li class="highlight-list-item"><a href="https://researchgate.net/">ResearchGate</a> - социальная сеть для исследования и обмена научными публикациями.</li>
+                                <li class="highlight-list-item"><a href="https://towardsdatascience.com/">Towards Data Science</a> - платформа с множеством статей по науке о данных и ИИ.</li>
+                            </ol>
+                        </ul>
+                    </div>
+                    
+                </section>
+
+                <heading>
+                    <div class="centered-heading">
+                        <span>
+                            <h1 id = "heading4" class = "anchor-target heading">Документация по фреймворкам</h1>
+                        </span>
+                    </div>
+                </heading>
+
+                <section>
+                    <ul class="principles">
+                        <h2>Ресурсы:</h2>
+                        <ol>
+                            <li class="highlight-list-item"><a href="https://keras.io/guides/">Keras Documentation</a> - официальная документация Keras с руководствами по использованию библиотеки для глубокого обучения.</li>
+                            <li class="highlight-list-item"><a href="https://www.tensorflow.org/learn">TensorFlow Learning Resources</a> - обучающие материалы и ресурсы для освоения TensorFlow, одного из ведущих фреймворков для ИИ.</li>
+                            <li class="highlight-list-item"><a href="https://pytorch.org/docs/stable/index.html">PyTorch Documentation</a> - полная документация по PyTorch с примерами и руководствами по работе с фреймворком.</li>
+                            <li class="highlight-list-item"><a href="https://scikit-learn.org/stable/user_guide.html">Scikit-learn User Guide</a> - руководство по Scikit-learn, популярной библиотеке для машинного обучения на Python.</li>
+                            <li class="highlight-list-item"><a href="https://mxnet.apache.org/versions/1.9.1/api/python/docs/index.html">Apache MXNet Documentation</a> - документация к фреймворку MXNet, который поддерживает глубокое обучение и распределенные вычисления.</li>
+                        </ol>
+                
+                        <h2>Руководства:</h2>
+                        <ol>
+                            <li class="highlight-list-item"><a href="https://www.tensorflow.org/guide">TensorFlow Guides</a> - подробные руководства по различным аспектам использования TensorFlow для разработки моделей.</li>
+                            <li class="highlight-list-item"><a href="https://pytorch.org/tutorials/">PyTorch Tutorials</a> - обучающие уроки по использованию PyTorch для создания различных моделей и приложений.</li>
+                            <li class="highlight-list-item"><a href="https://keras.io/examples/">Keras Examples</a> - практические примеры использования Keras для решения задач глубокого обучения.</li>
+                            <li class="highlight-list-item"><a href="https://scikit-learn.org/stable/tutorial/index.html">Scikit-learn Tutorials</a> - обучающие уроки по машинному обучению с использованием Scikit-learn.</li>
+                            <li class="highlight-list-item"><a href="https://docs.microsoft.com/en-us/azure/machine-learning/">Azure Machine Learning Documentation</a> - руководство по использованию Azure для реализации решений ИИ.</li>
+                        </ol>
+                
+                        <h2>Статьи:</h2>
+                        <ol>
+                            <li class="highlight-list-item"><a href="https://towardsdatascience.com/building-your-first-neural-network-with-keras-9ae8e0f322">Building Your First Neural Network with Keras</a> - статья о создании первой нейронной сети с использованием Keras.</li>
+                            <li class="highlight-list-item"><a href="https://www.analyticsvidhya.com/blog/2020/08/understanding-deep-learning-frameworks/">Understanding Deep Learning Frameworks</a> - статья о различных фреймворках глубокого обучения и их особенностях.</li>
+                            <li class="highlight-list-item"><a href="https://www.datacamp.com/community/tutorials/deep-learning-python">Deep Learning in Python</a> - руководство по применению глубокого обучения в Python с использованием различных библиотек.</li>
+                            <li class="highlight-list-item"><a href="https://towardsdatascience.com/pytorch-vs-tensorflow-which-one-is-better-3da3f34c1091">PyTorch vs. TensorFlow</a> - сравнительный анализ двух популярных фреймворков для глубокого обучения.</li>
+                            <li class="highlight-list-item"><a href="https://www.oreilly.com/radar/the-state-of-deep-learning-frameworks/">The State of Deep Learning Frameworks</a> - обзор состояния фреймворков глубокого обучения на рынке.</li>
+                        </ol>
+                    </ul>
+                </section>                
+
+                <heading>
+                    <div class="centered-heading">
+                        <span>
+                            <h1 id = "heading5" class = "anchor-target heading">Форумы и сообщества</h1>
+                        </span>
+                    </div>
+                </heading>
+
+                <section>
+                    <ul class="principles">
+                        <h2>Порталы</h2>
+                        <ol>
+                            <li class="highlight-list-item"><a href="https://towardsdatascience.com/">Towards Data Science</a> - платформа, собравшая статьи и руководства по науке о данных и искусственному интеллекту.</li>
+                            <li class="highlight-list-item"><a href="https://www.kdnuggets.com/">KDnuggets</a> - ресурс с новостями, статьями и учебными материалами по аналитике данных и машинному обучению.</li>
+                            <li class="highlight-list-item"><a href="https://www.analyticsvidhya.com/">Analytics Vidhya</a> - сообщество аналитиков и специалистов по ИИ, предлагающее курсы и статьи.</li>
+                            <li class="highlight-list-item"><a href="https://www.datacamp.com/community">DataCamp Community</a> - онлайн-сообщество для обсуждения тем по науке о данных и машинному обучению.</li>
+                            <li class="highlight-list-item"><a href="https://www.oreilly.com/">O'Reilly</a> - книжное издательство, предлагающее обширный контент по технологиям, включая ИИ и анализ данных.</li>
+                        </ol>
+                
+                        <h2>Форумы</h2>
+                        <ol>
+                            <li class="highlight-list-item"><a href="https://www.reddit.com/r/MachineLearning/">Reddit: Machine Learning</a> - форум для обсуждения последних новостей и исследований в области машинного обучения.</li>
+                            <li class="highlight-list-item"><a href="https://forums.fast.ai/">Fast.ai Forum</a> - сообщество, посвященное глубокому обучению и использованию фреймворка Fast.ai.</li>
+                            <li class="highlight-list-item"><a href="https://discussion.kubernetes.io/c/machine-learning/12">Kubernetes Forum</a> - раздел форума Kubernetes, где обсуждаются аспекты машинного обучения.</li>
+                            <li class="highlight-list-item"><a href="https://stackoverflow.com/questions/tagged/machine-learning">Stack Overflow</a> - платформа вопросов и ответов, где можно обсудить и получить помощь по проблемам разработки ИИ.</li>
+                            <li class="highlight-list-item"><a href="https://www.ai.stackexchange.com/">Artificial Intelligence Stack Exchange</a> - специализированный форум для вопросов и обсуждений по искусственному интеллекту.</li>
+                        </ol>
+                
+                        <h2>Сообщества</h2>
+                        <ol>
+                            <li class="highlight-list-item"><a href="https://www.meetup.com/topics/machine-learning/">Meetup - Machine Learning</a> - платформа для нахождения и участия в встречах и событиях, посвященных ИИ и машинному обучению.</li>
+                            <li class="highlight-list-item"><a href="https://www.linkedin.com/groups/898164/">LinkedIn Groups: Machine Learning</a> - профессиональное сообщество для обмена знаниями и опытом по машинному обучению.</li>
+                            <li class="highlight-list-item"><a href="https://www.facebook.com/groups/689346314912999/">Facebook AI Group</a> - группа для обсуждения различных тем по искусственному интеллекту и обмена опытом.</li>
+                            <li class="highlight-list-item"><a href="https://www.kaggle.com/">Kaggle</a> - платформа для проведения соревнований по машинному обучению и обмена данными с сообществом.</li>
+                            <li class="highlight-list-item"><a href="https://www.udacity.com/">Udacity Community</a> - онлайн-сообщество, где студенты и профессионалы могут обсуждать курсы по ИИ и смежным темам.</li>
+                        </ol>
+                    </ul>                    
+                </section>                
+
+                <heading>
+                    <div class="centered-heading">
+                        <span>
+                            <h1 id = "heading6" class = "anchor-target heading">Справочник научных терминов AI Engineering</h1>
+                        </span>
+                    </div>
+                    <p>Ниже представлены научные термины в области AI Engineering, которые помогут вам глубже понять ключевые концепции и методологии, используемые в этой стремительно развивающейся сфере. Эти термины охватывают широкий спектр тем, от методов машинного обучения до передовых архитектур нейронных сетей. Знание этих понятий существенно повысит вашу квалификацию и подготовит вас к работе с современными технологиями в области искусственного интеллекта.</p>
+                </heading>
+
+                <section>
+                    <ul class="principles">
+                        <li><strong>Обучение с подкреплением</strong> - метод машинного обучения, в котором агент учится принимать решения, взаимодействуя с окружающей средой и получая вознаграждения или штрафы на основе своих действий.</li>
+                        <li><strong>Байесовская оптимизация</strong> - метод оптимизации, использующий принцип вероятностного вывода для нахождения максимума (или минимума) функции, особенно ценного при дорогих или времязатратных вычислениях.</li>
+                        <li><strong>Гибридные модели</strong> - комбинация различных подходов машинного обучения и метода оптимизации, позволяющая улучшить точность и уменьшить время обучения.</li>
+                        <li><strong>Формальная верификация</strong> - процесс доказывания корректности алгоритмов и моделей ИИ, гарантируя, что они соответствуют заданным спецификациям и требованиям.</li>
+                        <li><strong>Доступность данных</strong> - понятие, касающееся возможности получения, хранения и использования набора данных для обучения моделей, включая вопросы этики и конфиденциальности.</li>
+                        <li><strong>Контекстно-ориентированные системы</strong> - системы, которые могут адаптироваться к изменениям в окружающей среде или предпочтениях пользователя на основе предшествующего опыта и контекста.</li>
+                        <li><strong>Неопределенность в моделировании</strong> - концепция учета неопределенности в входных данных и выводах, что позволяет улучшить прогнозирование и принятие решений.</li>
+                        <li><strong>Сетевые нейронные архитектуры</strong> - сложные конструкции нейронных сетей, которые включают в себя особенности многослойного и объединенного обучения, таких как ResNet или DenseNet.</li>
+                        <li><strong>Трансформеры</strong> - архитектура глубокого обучения, используемая в обработке естественного языка, основанная на механизме внимания и способная обрабатывать последовательности данных параллельно.</li>
+                        <li><strong>Градиентный спуск с адаптивными шагами</strong> - алгоритм оптимизации, который адаптирует размер шага в процессе обучения в зависимости от свойства градиента.</li>
+                        <li><strong>Сложные модели цепей принятия решений</strong> - сложные структуры, которые учитывают временные и условные зависимости между событиями или решениями, применяемыми в непрерывных или дискретных временных рамках.</li>
+                        <li><strong>Анализ структурированной негабаритной информации</strong> - метод обработки и анализа данных, обладающих высокой размерностью и сложной структурой, таких как графы или временные ряды.</li>
+                        <li><strong>Обработка данных в реальном времени</strong> - подход, при котором данные обрабатываются и анализируются по мере их поступления, что позволяет моментально реагировать на изменения.</li>
+                        <li><strong>Автоencoder</strong> - это тип нейронной сети, предназначенной для обучения эффективных кодировок данных путем реконструкции входных данных из их сжатого представления.</li>
+                        <li><strong>Регуляризация</strong> - техника, используемая для предотвращения переобучения модели путем добавления дополнительной информации или ограничения к функции потерь.</li>
+                    </ul>
+                </section>
+            </div>
+            {% endblock %}
+        </div>
+        
+        <footer id="footer" class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                    <svg class="bi" width="30" height="24">
+                        <use xlink:href="#bootstrap"></use>
+                    </svg>
+                </a>
+                <span class="mb-3 mb-md-0 text-muted">© 2024 Company, Inc</span>
+            </div>
+
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                            <use xlink:href="#twitter"></use>
+                        </svg></a></li>
+                <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                            <use xlink:href="#instagram"></use>
+                        </svg></a></li>
+                <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+                            <use xlink:href="#facebook"></use>
+                        </svg></a></li>
+            </ul>
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript для скрытия и раскрытия меню
+        document.getElementById("toggleButton").onclick = function() {
+            document.getElementById("sidebar").classList.toggle("collapsed");
+            document.getElementById("content").classList.toggle("collapsed");
+            document.getElementById("header").classList.toggle("collapsed");
+            document.getElementById("footer").classList.toggle("collapsed");
+        };
+    </script>
+</body>
+
+</html>
