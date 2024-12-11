@@ -51,6 +51,7 @@ header{
     -webkit-box-shadow: 0 5px 25px rgba(0, 0, 0, 0.30);
     box-shadow: 0 5px 25px rgba(85, 132, 81, 0.30);
     transition: width 0.3s;
+    z-index: 1000;
 }
 
 .sidebar.collapsed{
@@ -62,13 +63,14 @@ header{
     position: absolute;
     top: 20px;
     left: 10px;
-    z-index: 1000;
+    z-index: 1001;
 }
 
 #toggleButton {
     background-color: rgb(70, 150, 101); /* Измените цвет фона */
     border: none;
     position: fixed; /* Закрепляем меню */
+
 
 }
 
@@ -482,7 +484,31 @@ a:visited {
 }
 
 
+.parallax {
+    /* Общие стили для всех параллакс-секций */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px; /* Регулируйте высоту по необходимости */
+    position: relative;
+}
 
+/* Параллакс перед Header */
+.parallax-top {
+    background-image: url("/static/image/Parallax.jpg");
+
+}
+
+.parallax-bottom{
+    background-image: url("/static/image/Parallax.jpg");
+}
+
+@media (max-width: 768px) {
+    .parallax {
+        background-attachment: scroll;
+    }
+}
 
 
 
